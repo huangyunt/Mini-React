@@ -6,6 +6,6 @@ function createElement( tag, attrs, ...children ) {
         children
     }
 }
-export default React = {
+export const React = {
     createElement
 };
