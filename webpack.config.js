@@ -5,7 +5,7 @@ module.exports = {
     devtool: false,
     plugins: [new webpack.SourceMapDevToolPlugin({})],
     entry: {
-        main: './src/index.js',
+        main: './src/index.jsx',
     },
     output: {
         filename: '[name].js',
@@ -14,7 +14,7 @@ module.exports = {
     module: {
         // 针对babel的配置
         rules: [{
-            test: /\.js$/,
+            test: /\.jsx$/,
             exclude: /node_modules/,  // 无需对第三软件库进行转换，因为它们已经做了转换
             loader: 'babel-loader',
             options: {
