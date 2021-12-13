@@ -22,18 +22,20 @@ var element =  React.createElement(
 */
 
 function setAttribute(dom, attrs) {
-    attrs.forEach((attr, value) => {
-        // 如果是Event: onXXX
-        if (/on\w+/.test(attr)) {
-            dom[attr.toLowerCase()] = value;
-        } else if (attr === "style") {
-            Object.entries(value).forEach(
-                (styleName, styleValue) => (dom[styleName] = styleValue)
-            );
-        } else {
-            dom.setAttribute(attr, value);
-        }
-    });
+    attrs &&
+        Object.entries(attrs).forEach(([attr, value]) => {
+            // 如果是Event: onXXX
+            if (/on\w+/.test(attr)) {
+                dom[attr.toLowerCase()] = value;
+            } else if (attr === "style") {
+                Object.entries(value).forEach(
+                    ([styleName, styleValue]) =>
+                        (dom.style[styleName] = styleValue)
+                );
+            } else {
+                dom.setAttribute(attr, value);
+            }
+        });
 }
 
 function dfs(vnode) {
@@ -58,5 +60,8 @@ function render(vnode, domContainer) {
 }
 
 export const ReactDOM = {
-    render,
+    render: (vnode, container) => {
+        container.innerHTML = '';
+        return render(vnode, container);
+    },
 };
