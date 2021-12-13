@@ -1,4 +1,4 @@
-import { ReactDom } from "../react-dom/index";
+import { ReactDOM } from "../react-dom/index";
 import { React } from "../react/index";
 console.log(React);
 const element = (
@@ -8,7 +8,7 @@ const element = (
         <b></b>
     </div>
 );
-ReactDom.render(element, document.querySelector('#root'));
+ReactDOM.render(element, document.querySelector('#root'));
 console.log(element);
 console.log(JSON.stringify(element));
 const temp = () => {};

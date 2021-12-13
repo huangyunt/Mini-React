@@ -26,6 +26,6 @@ function dfs(vnode) {
 function render(vnode, domContainer) {
     domContainer.appendChild(dfs(vnode));
 }
-export const ReactDom = {
+export const ReactDOM = {
     render
 };
