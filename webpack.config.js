@@ -11,6 +11,13 @@ module.exports = {
         filename: '[name].js',
         path: path.resolve(__dirname, 'dist')
     },
+    devServer: {
+        static: {
+          directory: path.join(__dirname, 'public'),
+        },
+        compress: true,
+        port: 9000,
+      },
     module: {
         // 针对babel的配置
         rules: [{
